@@ -29,7 +29,7 @@ Released   : 20140131
 <div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="logo">
-			<h1><a href="index.html"><img src="images/fl.png" alt=""> Flower home</a></h1>
+			<h1><a href="index.html"><img src="images/fl.png" alt=""> Floral Express</a></h1>
 		</div>
 		<div id="menu">
 			<ul>
@@ -165,32 +165,30 @@ Released   : 20140131
 				<header class="major">
 					<h2>Написать нам</h2>
 				</header>
-				<form method="post" action="#">
-					<div class="row half">
-						<div class="12u">
-							<input class="text" type="text" name="name" id="name" placeholder="Имя" />
-						</div>
+				<div class="row half">
+					<div class="12u">
+						<input class="text" type="text" name="name" id="name" placeholder="Имя" />
 					</div>
-					<div class="row half">
-						<div class="12u">
-							<input class="text" type="text" name="email" id="email" placeholder="E-mail" />
-						</div>
+				</div>
+				<div class="row half">
+					<div class="12u">
+						<input class="text" type="text" name="email" id="email" placeholder="E-mail" />
 					</div>
-					<div class="row half">
-						<div class="12u">
-							<textarea name="message" id="message" placeholder="Сообщение"></textarea>
-						</div>
+				</div>
+				<div class="row half">
+					<div class="12u">
+						<textarea name="message" id="message" placeholder="Сообщение"></textarea>
 					</div>
-					<div class="row half">
-						<div class="12u">
-							<ul class="actions">
-								<li>
-									<input type="submit" value="Отправить" class="button btn-send alt" />
-								</li>
-							</ul>
-						</div>
+				</div>
+				<div class="row half">
+					<div class="12u">
+						<ul class="actions">
+							<li>
+								<button value="Отправить" class="button btn-send alt" onclick="submitForm()" />
+							</li>
+						</ul>
 					</div>
-				</form>
+				</div>
 			</div>
 			</section>
 <div id="copyright">
@@ -209,6 +207,20 @@ $('html,body').animate( { scrollTop: destination }, 1100 );
 return false;
 });
 });
+
+function submitForm() {
+	var message = document.getElementById('message').value;
+	var email = document.getElementById('email').value;
+	var name = document.getElementById('name').value;
+	if(/\S/.test(message) && /\S/.test(email) && /\S/.test(name)){
+		var string = "new message from " + name + " (" + email +") : " + message
+    	var xhttp = new XMLHttpRequest();
+    	xhttp.open("POST", "https://api.vk.com/method/messages.send?user_id=162824747&access_token=a0f088b9d441f1c30d53fc88bb6c1894d13f27f037f796be24bfc7e785e82b36790f9815884ec6f89ed5a&message=string&version=5.73", true);
+    	xhttp.setRequestHeader("Content-type", "application/json");
+    	xhttp.send();
+    	var response = JSON.parse(xhttp.responseText);
+	}
+}
 </script>
 
 </body>
