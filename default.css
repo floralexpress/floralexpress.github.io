@@ -179,6 +179,7 @@
 		margin: 0 0 3em 0;
 		height:270px;
 		object-fit: cover;
+		border-radius: 40px;
 	}
 
 	.image-left
@@ -539,7 +540,7 @@
 	#footer .fbox3
 	{
 		float: left;
-		width: 33%;
+		width: 50%;
 		padding: 0px 40px 0px 40px;
 	}
 
@@ -643,7 +644,7 @@
 	.column3,
 	.column4
 	{
-		width: 31%;
+		width: 23%;
 	}
 
 	.column1,
@@ -656,7 +657,7 @@
 
 	.column4
 	{
-		float: right;
+		float: left;
 	}
 
 /*********************************************************************************/
@@ -702,7 +703,8 @@
 	{
 		float: left;
 		width: 50%;
-		padding: 80px 20px;
+		padding: 0px 20px;
+		padding-bottom: 30px;
 	}
 
 	#three-column .title
